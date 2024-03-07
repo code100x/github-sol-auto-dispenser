@@ -17,7 +17,7 @@ const webhookHandler = (req, res) => {
     return res.status(403).send('Invalid signature');
   }
 
-  // Handle the pull request event
+
   const { action, pull_request } = req.body;
   if (action === 'opened' || action === 'reopened') {
     handlePullRequestEvent(pull_request);
