@@ -1,16 +1,26 @@
+// walletManager.js
 
+const { Connection, PublicKey, SystemProgram, Transaction, Keypair, LAMPORTS_PER_SOL, clusterApiUrl } = require('@solana/web3.js');
 
-const walletManager = new WalletManager();
+class WalletManager {
+    constructor() {
+        this.connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+    }
 
+    async sendSol(senderKeypair, recipientPublicKeyStr, amount) {
+        const recipientPublicKey = new PublicKey(recipientPublicKeyStr);
+        const transaction = new Transaction().add(
+            SystemProgram.transfer({
+                fromPubkey: senderKeypair.publicKey,
+                toPubkey: recipientPublicKey,
+                lamports: amount * LAMPORTS_PER_SOL, // Converting SOL to lamports
+            }),
+        );
 
-walletManager.createWallet('wallet123');
+        const signature = await this.connection.sendTransaction(transaction, [senderKeypair], {skipPreflight: false, preflightCommitment: 'confirmed'});
+        await this.connection.confirmTransaction(signature, 'confirmed');
+        return signature;
+    }
+}
 
-
-const walletInfo = walletManager.getWalletInfo('wallet123');
-console.log(walletInfo);
-
-
-walletManager.addTransaction('wallet123', { amount: 100, description: 'Initial deposit' });
-
-
-walletManager.updateBalance('wallet123', 100);
+module.exports = WalletManager;
