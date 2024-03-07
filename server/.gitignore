@@ -1,0 +1,41 @@
+# Node.js
+/node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Build files
+/dist
+/build
+
+# Temp files
+/tmp
+/.sass-cache
+
+# Solana
+/wallet/
+!**/wallet/.gitkeep  # If you wish to keep the wallet directory structure but ignore its contents
+
+# Testing
+/coverage
+/.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
