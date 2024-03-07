@@ -1,12 +1,15 @@
 const express = require('express');
+const { createNodeMiddleware } = require('@octokit/webhooks');
 const webhookHandler = require('./github/webhookHandler');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Middleware to parse JSON request bodies
-app.use(express.json());
+// Register GitHub webhook middleware
+app.use('/github-webhook', createNodeMiddleware(webhookHandler, { path: '/' }));
 
-// Webhook endpoint
-app.post('/webhook', webhookHandler);
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
+});
 
 module.exports = app;

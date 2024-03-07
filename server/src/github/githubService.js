@@ -1,19 +1,11 @@
-const logger = require('../utils/logger');
-const { transferSol } = require('../solana/solanaTx');
+const solanaTx = require('../solana/solanaTx');
 
-const handlePullRequestEvent = async (pullRequest) => {
-  const { user } = pullRequest.user;
-  const userName = user.login;
-
-
-  const userAddress = 'placeholder_solana_address';
-
-  try {
-    await transferSol(userAddress, 1);
-    logger.info(`Transferred 1 SOL to ${userName} (${userAddress})`);
-  } catch (error) {
-    logger.error(`Error transferring SOL to ${userName}: ${error.message}`);
+exports.handlePullRequestEvent = async (payload) => {
+  if (payload.action === 'closed' && payload.pull_request.merged) {
+    console.log('Pull request merged, dispensing funds...');
+    // Here, define the logic to determine the recipient and amount
+    const recipientAddress = 'RECIPIENT_WALLET_ADDRESS';
+    const amount = 0.1; // Specify the amount to send
+    await solanaTx.sendSol(recipientAddress, amount);
   }
 };
-
-module.exports = { handlePullRequestEvent };
