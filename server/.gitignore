@@ -16,11 +16,12 @@ yarn-error.log
 # Operating System Files
 .DS_Store
 Thumbs.db
+
 .env
 # Build files
 /dist
 /build
-
+.env
 # Temp files
 /tmp
 /.sass-cache
