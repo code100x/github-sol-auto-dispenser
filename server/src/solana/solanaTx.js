@@ -12,7 +12,11 @@ async function sendSol(receiverAddress, amount) {
     solanaWeb3.SystemProgram.transfer({
       fromPubkey: senderKeypair.publicKey,
       toPubkey: receiverPublicKey,
+<<<<<<< HEAD
       lamports: amount * solanaWeb3.LAMPORTS_PER_SOL, // Convert SOL to lamports
+=======
+      lamports: amount * solanaWeb3.LAMPORTS_PER_SOL, 
+>>>>>>> master
     }),
   );
 
