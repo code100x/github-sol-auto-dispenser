@@ -1,7 +1,11 @@
+import React from 'react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import '@rainbow-me/rainbowkit/styles.css';
 import "./globals.css";
-import { ThemeProvider } from "@/providers/theme-providers"
+import { ThemeProvider } from "@/providers/theme-providers";
+import { WalletProviders } from "@/providers/wallet-providers"; 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,17 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body 
-      
-      className={inter.className}>
-       <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <WalletProviders> 
             {children}
-          </ThemeProvider>
+          </WalletProviders>
+        </ThemeProvider>
       </body>
     </html>
   );
