@@ -3,3 +3,8 @@ export const extractAmount = (comment: string) => {
     return match ? match[1] : null;
   };
   
+//  here  bot extracts the amount from the comment 
+  export function extractAddress(commentBody: string): string | null {
+  const match = commentBody.match(/\/address\s*(\w+)/);
+  return match ? match[1] : null;
+}

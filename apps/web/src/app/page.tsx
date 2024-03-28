@@ -1,10 +1,6 @@
 import { LoginBtn, LogoutBtn } from "@/components";
 import { getServerSession } from "next-auth";
-import { signOut } from "next-auth/react";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-
-
-
 
 export default async function Home() {
   const session = await getServerSession();
