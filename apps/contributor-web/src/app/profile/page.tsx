@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 
 const ProfilePage = async () => {
   const session = await getServerSession(options);
-
   if (!session) {
     return redirect("/");
   }
@@ -15,7 +14,7 @@ const ProfilePage = async () => {
     <div>
       <h1>ProfilePage</h1>
 
-      <div>
+      <div className="p-10 m-10 border border-black w-[20%]">
         {session?.user?.name ? <h2>Hello {session.user.name}!</h2> : null}
 
         {session?.user?.image ? (
