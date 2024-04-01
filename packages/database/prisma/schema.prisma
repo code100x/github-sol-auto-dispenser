@@ -10,11 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model UserContributor {
-  id          Int     @id @default(autoincrement())
-  username    String  @unique
-  displayName String
-  avatar      String?
+model BountyTable {
+  id        Int      @id @default(autoincrement())
+  username     String
+  amount    Int
+  createdAt DateTime @default(now())
 }
 
 model UserMaintainer {
