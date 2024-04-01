@@ -1,11 +1,10 @@
 import { Probot } from 'probot';
-import { extractAmount, isBountyComment } from './utils.js';
+import { addNewBounty, extractAmount, isBountyComment } from './utils.js';
 import {
   sendBountyMessageToDiscord,
   sendIssueOpenToDiscord,
   sendPrOpenToDiscord,
 } from './discord.js';
-import { addNewBounty } from './lib/bounty.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -20,7 +19,6 @@ export default (app: Probot) => {
       body: `@${context.payload.sender.login} Thanks for opening this issue!`,
     });
     await context.octokit.issues.createComment(issueComment);
-    // TODO: Send this to discord
     sendIssueOpenToDiscord({
       title: 'New Issue Opened',
       avatarUrl: context.payload.sender.avatar_url,
@@ -46,7 +44,6 @@ export default (app: Probot) => {
 
   app.on('issue_comment.created', async (context) => {
     if (context.isBot) return;
-    // TODO: Handle case when comment is created
     app.log.debug(context.payload.comment.body);
     const commentBody = context.payload.comment.body;
     const isRepoOwner =
@@ -82,6 +79,5 @@ export default (app: Probot) => {
       description: `Congratulations!!! @${context.payload.issue.user.login} for winning ${amount}`,
       prLink: context.payload.issue.url,
     });
-    // TODO: Send this to discord
   });
 };
