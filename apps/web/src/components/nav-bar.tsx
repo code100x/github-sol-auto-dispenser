@@ -3,9 +3,9 @@
 import React from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { RefreshCcw, Sparkles } from 'lucide-react';
-import { ThemeToggler } from './theme-toggler';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { ThemeToggler } from './theme-toggler';
 
 export const NavBar = () => {
   const session = useSession();

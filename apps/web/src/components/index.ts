@@ -1,2 +1,3 @@
-export * from './logout-btn';
-export * from './login-btn';
+export * from './hero';
+export * from './nav-bar';
+export * from './theme-toggler';
