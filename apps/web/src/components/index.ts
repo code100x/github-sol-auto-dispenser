@@ -4,3 +4,4 @@ export * from './theme-toggler';
 export * from './demo';
 export * from './gradient-bg';
 export * from './setup';
+export * from './dashboard';
