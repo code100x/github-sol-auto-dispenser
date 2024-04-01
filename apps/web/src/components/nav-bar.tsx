@@ -2,18 +2,10 @@
 
 import React from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import {
-  EllipsisIcon,
-  Loader,
-  Loader2Icon,
-  LoaderCircle,
-  LoaderCircleIcon,
-  RefreshCcw,
-  RefreshCcwDotIcon,
-  Sparkles,
-} from 'lucide-react';
+import { RefreshCcw, Sparkles } from 'lucide-react';
 import { ThemeToggler } from './theme-toggler';
 import { Button } from './ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 
 export const NavBar = () => {
   const session = useSession();
@@ -55,19 +47,26 @@ export const AppbarAuth = ({ isInMenu = false }: { isInMenu?: boolean }) => {
       </Button>
     );
 
+  if (session.status === 'authenticated') {
+    return (
+      <div className="flex items-center gap-2">
+        <Avatar>
+          <AvatarImage
+            src={session.data.user?.image!}
+            className="w-10 h-10 rounded-full"
+          />
+          <AvatarFallback>U</AvatarFallback>
+        </Avatar>
+        <Button id="navbar-default" onClick={() => signOut()}>
+          Logout
+        </Button>
+      </div>
+    );
+  }
+
   return (
-    <Button
-      variant={isInMenu ? 'link' : 'outline'}
-      id="navbar-default"
-      onClick={() => {
-        if (session.data?.user) {
-          signOut();
-        } else {
-          signIn();
-        }
-      }}
-    >
-      {session.data?.user ? 'Logout' : 'Login'}
+    <Button id="navbar-default" onClick={() => signIn()}>
+      Login
     </Button>
   );
 };
