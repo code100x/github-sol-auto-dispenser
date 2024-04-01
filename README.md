@@ -23,3 +23,4 @@ GitHub-SOL-Auto-Dispenser is a decentralized application that rewards contributo
 
 ```bash
 git clone https://github.com/your-username/github-sol-auto-dispenser.git
+```

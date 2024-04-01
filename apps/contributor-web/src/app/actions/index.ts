@@ -1,1 +1,1 @@
-export * from "./solana"
+export * from './solana';

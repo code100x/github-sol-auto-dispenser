@@ -1,5 +1,5 @@
-"use client";
-import { signOut } from "next-auth/react";
+'use client';
+import { signOut } from 'next-auth/react';
 
 export const LogoutBtn = () => {
   return (

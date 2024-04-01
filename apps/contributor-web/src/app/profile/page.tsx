@@ -1,18 +1,18 @@
-import Image from "next/image";
-import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
-import SignOutButton from "@/components/SignOutButton";
-import { redirect } from "next/navigation";
-import { extractUserIdFromAvatarUrl, getGithubUsernamefromUserId } from "@/lib";
-import db from "@repo/database/client";
-import { BountyTable, TBountyData } from "@/components/BountyTable";
-import { sendSolana } from "../actions";
+import Image from 'next/image';
+import { getServerSession } from 'next-auth';
+import { options } from '@/app/api/auth/[...nextauth]/options';
+import SignOutButton from '@/components/SignOutButton';
+import { redirect } from 'next/navigation';
+import { extractUserIdFromAvatarUrl, getGithubUsernamefromUserId } from '@/lib';
+import db from '@repo/database/client';
+import { BountyTable, TBountyData } from '@/components/BountyTable';
+import { sendSolana } from '../actions';
 
 const ProfilePage = async () => {
   const session = await getServerSession(options);
 
   if (!session) {
-    return redirect("/");
+    return redirect('/');
   }
 
   const githubUserId = extractUserIdFromAvatarUrl(

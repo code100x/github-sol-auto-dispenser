@@ -1,5 +1,5 @@
-"use client"
-import React from "react";
+'use client';
+import React from 'react';
 
 export type TBountyData = {
   id: number;
@@ -22,28 +22,29 @@ export const BountyTable = ({ data }: BountyTableProps) => {
       >
         <thead>
           <tr className="border border-black">
-            <th >ID</th>
+            <th>ID</th>
             <th>Username</th>
             <th>Amount</th>
             <th>Rewarded On</th>
           </tr>
         </thead>
         <tbody>
-            {
-                data.map((item, key) => {
-                    return (
-                        <tr key={"bounty_table_row_" + key} className="border border-black">
-                            <td>{key + 1}</td>
-                            <td>{item.username}</td>
-                            <td>$ {item.amount}</td>
-                            <td>{new Date(item.createdAt).toString()}</td>
-                        </tr>
-                    )
-                })
-            }
+          {data.map((item, key) => {
+            return (
+              <tr
+                key={'bounty_table_row_' + key}
+                className="border border-black"
+              >
+                <td>{key + 1}</td>
+                <td>{item.username}</td>
+                <td>$ {item.amount}</td>
+                <td>{new Date(item.createdAt).toString()}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-      {data.length === 0 && <p>No bounties received yet.</p> }
+      {data.length === 0 && <p>No bounties received yet.</p>}
     </div>
   );
 };

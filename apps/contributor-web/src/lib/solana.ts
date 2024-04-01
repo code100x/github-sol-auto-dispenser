@@ -1,22 +1,22 @@
-import { options } from "@/app/api/auth/[...nextauth]/options";
+import { options } from '@/app/api/auth/[...nextauth]/options';
 import {
   Connection,
   Keypair,
   PublicKey,
   Transaction,
   SystemProgram,
-} from "@solana/web3.js";
-import * as bs58 from "bs58";
-import { Session, getServerSession } from "next-auth";
-import { extractUserIdFromAvatarUrl, getGithubUsernamefromUserId } from ".";
-import db from "@repo/database/client";
-import dotenv from "dotenv";
+} from '@solana/web3.js';
+import * as bs58 from 'bs58';
+import { Session, getServerSession } from 'next-auth';
+import { extractUserIdFromAvatarUrl, getGithubUsernamefromUserId } from '.';
+import db from '@repo/database/client';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const connection = new Connection(
   process.env.SOLANA_URL as string,
-  "confirmed"
+  'confirmed'
 );
 
 const senderPrivateKeyBase58 = process.env.SENDER_PRIVATE_KEY;
@@ -32,7 +32,7 @@ export async function sendSolanaToAnotherAddress(
   try {
     if (!senderPrivateKeyBase58 || !senderPublicKey) {
       throw new Error(
-        "Please provide sender private key and sender public key in the environment variables."
+        'Please provide sender private key and sender public key in the environment variables.'
       );
     }
 
@@ -68,7 +68,7 @@ export async function sendSolanaToAnotherAddress(
       await connection.getAccountInfo(senderPublicKeyObj);
 
     if (!senderAccountInfo) {
-      throw new Error("Sender account not found");
+      throw new Error('Sender account not found');
     }
 
     // Construct a transaction
@@ -91,7 +91,7 @@ export async function sendSolanaToAnotherAddress(
       transaction.serialize()
     );
 
-    console.log("Transaction sent:", signature);
+    console.log('Transaction sent:', signature);
 
     // remove bounties of the user
     await db.bountyTable.deleteMany({ where: { username } });

@@ -3,12 +3,13 @@ export const getGithubUsernamefromUserId = async (userId: string) => {
     const url = `https://api.github.com/user/${userId}`;
     const res = await fetch(url, {
       headers: {
-        "Authorization": "token " + process.env.GITHUB_PAT
-      }
+        // Token is added so that github doesn't rate limit
+        Authorization: 'token ' + process.env.GITHUB_PAT,
+      },
     });
     const data = await res.json();
 
-    if (!data.login) throw new Error("User not found.");
+    if (!data.login) throw new Error('User not found.');
 
     return data.login as string;
   } catch (error: any) {

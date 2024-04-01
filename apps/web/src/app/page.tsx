@@ -1,6 +1,6 @@
-import db from "@repo/database/client";
-import { LoginBtn, LogoutBtn } from "@/components";
-import { getServerSession } from "next-auth";
+import db from '@repo/database/client';
+import { LoginBtn, LogoutBtn } from '@/components';
+import { getServerSession } from 'next-auth';
 
 export default async function Home() {
   const contributors = await db.userContributor.findMany();
