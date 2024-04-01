@@ -12,7 +12,7 @@ datasource db {
 
 model BountyTable {
   id        Int      @id @default(autoincrement())
-  email     String
+  username     String
   amount    Int
   createdAt DateTime @default(now())
 }
