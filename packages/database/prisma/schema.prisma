@@ -69,3 +69,9 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Repo {
+  id      String @id @default(cuid())
+  name    String
+  ownerId Int
+}
