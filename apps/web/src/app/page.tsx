@@ -1,27 +1,22 @@
-import db from '@repo/database/client';
-import { LoginBtn, LogoutBtn } from '@/components';
+import { Dashboard, Hero, NavBar } from '@/components';
+import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 
 export default async function Home() {
-  const contributors = await db.userContributor.findMany();
-  console.log(contributors);
+  const session = await getServerSession(authOptions);
 
-  const session = await getServerSession();
-
-  if (session?.user) {
+  if (!session)
     return (
       <main>
-        {JSON.stringify(session.user)}
-        <div>
-          <LogoutBtn />
-        </div>
+        <NavBar />
+        <Hero />
       </main>
     );
-  }
 
   return (
     <main>
-      <LoginBtn />
+      <NavBar />
+      <Dashboard />
     </main>
   );
 }
