@@ -5,6 +5,7 @@ import { bountySchema } from '@/schemas/bounty';
 export async function POST(request: Request) {
   try {
     // TODO: Add logic to check the request is initiated from our bot server.
+    console.log(request.headers.get('x-bot-token'));
     const rawPayload = await request.json();
     const res = bountySchema.safeParse(rawPayload);
     if (!res.success) {
