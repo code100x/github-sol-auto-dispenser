@@ -4,7 +4,14 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const handler = async (req: NextRequest) => {
   try {
-    // TODO: Add logic to check the request is initiated from our bot server.
+    const botToken = req.headers.get('x-bot-token');
+    if (botToken !== process.env.BOT_SECRET) {
+      return NextResponse.json({
+        error: 'Unauthorized',
+      }, {
+        status: 401
+      })
+    }
 
     const body = await req.json();
     const res = githubSchema.safeParse(body);

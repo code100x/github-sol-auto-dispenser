@@ -69,13 +69,10 @@ export default (app: Probot) => {
       context.payload.repository.owner.login ===
       context.payload.comment.user.login;
     if (!isRepoOwner) return;
-    console.log('---------------Here 1--------------------');
 
     if (!isBountyComment(commentBody)) return;
 
-    const amount = extractAmount(commentBody);
-    console.log(commentBody);
-    console.log('---------------Here 2--------------------');
+    const amount = extractAmount(commentBody)?.replace('$', '');
 
     if (!amount) {
       const issueComment = context.issue({
@@ -85,8 +82,6 @@ export default (app: Probot) => {
       return;
     }
 
-    console.log('---------------Here 3------------------');
-    console.log('hello world');
     await addNewBounty({
       repoId: context.payload.repository.id,
       username: context.payload.sender.login as string,

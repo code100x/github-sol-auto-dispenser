@@ -24,7 +24,11 @@ export const addNewBounty = async (payload: IAddNewBountyParams) => {
     // TODO: Implement this
     const endpoint = process.env.ADMIN_SERVER_URL + '/api/bounty';
     console.log(endpoint);
-    const response = await axios.post(endpoint, payload);
+    const response = await axios.post(endpoint, payload, {
+      headers: {
+        'x-bot-token': process.env.BOT_SECRET!
+      }
+    });
 
     console.log(response);
 
@@ -47,7 +51,11 @@ export const addRepo = async (payload: IAddNewRepoParams) => {
   try {
     const endpoint = process.env.ADMIN_SERVER_URL + '/api/github';
     console.log(endpoint);
-    const response = await axios.post(endpoint, payload);
+    const response = await axios.post(endpoint, payload, {
+      headers: {
+        'x-bot-token': process.env.BOT_SECRET!,
+      }
+    });
     console.log(response);
 
     // const { data } = response;
