@@ -5,3 +5,4 @@ export * from './demo';
 export * from './gradient-bg';
 export * from './setup';
 export * from './dashboard';
+export * from './add-app';

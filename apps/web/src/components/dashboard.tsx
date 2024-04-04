@@ -1,32 +1,40 @@
 import { authOptions } from '@/lib/auth';
-import prisma from '@repo/database/client';
 import { getServerSession } from 'next-auth';
+import axios from 'axios';
+import Image from 'next/image';
+import prisma from '@repo/database/client';
+import { AddApp } from './add-app';
 
 export const Dashboard = async () => {
   const session = await getServerSession(authOptions);
+  const username = session.user.name;
 
-  console.log(session);
-  const repos = await prisma.repo.findMany({
+  const res = await prisma.repo.findMany({
     where: {
-      ownerId: session?.user.id,
+      ownerUsername: username,
     },
   });
 
-  if (!repos.length)
+  if (!res.length)
     return (
-      <h1 className="text-center">
-        You haven't installed github app on any repos
-      </h1>
+      <>
+        <h1 className="text-center">
+          You don't have any associated github repos yet
+        </h1>
+        <AddApp />
+      </>
     );
 
   return (
     <section className="flex justify-center flex-col items-center">
       <h1>Which repo do u want to monitor?</h1>
-      <div className="grid grid-cols-3">
-        {repos.map((repo) => {
-          return <h1>{JSON.stringify(repo)}</h1>;
+      <div className="grid md:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
+        {res.map((repo: any) => {
+          return <>{JSON.stringify(repo)}</>;
         })}
       </div>
+      <div>Add more + </div>
+      <AddApp />
     </section>
   );
 };

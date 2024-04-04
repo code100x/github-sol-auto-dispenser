@@ -1,5 +1,10 @@
 import { Probot } from 'probot';
-import { addNewBounty, extractAmount, isBountyComment } from './utils.js';
+import {
+  addNewBounty,
+  addRepo,
+  extractAmount,
+  isBountyComment,
+} from './utils.js';
 import {
   sendBountyMessageToDiscord,
   sendIssueOpenToDiscord,
@@ -11,6 +16,20 @@ dotenv.config();
 
 export default (app: Probot) => {
   app.log.info('Yay! The app was loaded!');
+
+  app.webhooks.on('installation_repositories', (context) => {
+    if (context.payload.action === 'added') {
+      const repo = context.payload.repositories_added[0];
+      const user = context.payload.sender;
+
+      addRepo({
+        ownerId: user.id,
+        ownerUsername: user.login,
+        repoId: repo.id,
+        repoName: repo.full_name,
+      });
+    }
+  });
 
   app.webhooks.on('issues.opened', async (context) => {
     if (context.isBot) return;
