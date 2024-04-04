@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const handler = async (req: NextRequest) => {
   try {
+    // TODO: Add logic to check the request is initiated from our bot server.
+
     const body = await req.json();
     const res = githubSchema.safeParse(body);
     if (!res.success) {

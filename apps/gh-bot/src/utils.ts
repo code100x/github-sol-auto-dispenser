@@ -2,15 +2,19 @@ import axios from 'axios';
 import 'dotenv/config';
 
 export const extractAmount = (comment: string) => {
-  const match = comment.match(/\/bounty\s+(\$?\d+)/);
+  console.log(comment);
+  const bountyExtractor = /\/bounty\s+(\$?\d+|\d+\$)/;
+
+  const match = comment.match(bountyExtractor);
   return match ? match[1] : null;
 };
 
 export const isBountyComment = (comment: string) => {
-  return comment.includes('/bounty');
+  return comment.trim().toLocaleLowerCase().startsWith('/bounty');
 };
 
 interface IAddNewBountyParams {
+  repoId: number;
   username: string;
   amount: number;
 }
@@ -19,13 +23,16 @@ export const addNewBounty = async (payload: IAddNewBountyParams) => {
   try {
     // TODO: Implement this
     const endpoint = process.env.ADMIN_SERVER_URL + '/api/bounty';
+    console.log(endpoint);
     const response = await axios.post(endpoint, payload);
+
+    console.log(response);
 
     const { data } = response;
 
     if (data.success === false) throw new Error(data.error);
   } catch (error: any) {
-    throw new Error(error.message);
+    console.log(error.message);
   }
 };
 
