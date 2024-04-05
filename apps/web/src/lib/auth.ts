@@ -33,17 +33,18 @@ export const authOptions = {
       await prisma.user.upsert({
         create: {
           id: profile.id.toString(),
-          email: profile.email ?? '',
+          email: user.email ?? '',
           image: profile.avatar_url ?? profile.gravatar_id,
           name: profile.login,
         },
         update: {
           name: profile.login,
           image: profile.avatar_url ?? profile.gravatar_id,
+          email: user.email,
         },
         where: {
           id: profile.id.toString(),
-          email: profile.email,
+          email: user.email,
         },
       });
       return true;
