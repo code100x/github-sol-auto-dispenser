@@ -1,7 +1,5 @@
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
-import axios from 'axios';
-import Image from 'next/image';
 import prisma from '@repo/database/client';
 import { AddApp } from './add-app';
 

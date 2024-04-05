@@ -65,10 +65,14 @@ export default (app: Probot) => {
     if (context.isBot) return;
     app.log.debug(context.payload.comment.body);
     const commentBody = context.payload.comment.body;
-    const isRepoOwner =
-      context.payload.repository.owner.login ===
-      context.payload.comment.user.login;
-    if (!isRepoOwner) return;
+    const commenter = context.payload.comment.user.login;
+    const isRepoOwner = context.payload.repository.owner.login === commenter;
+
+    if (
+      !isRepoOwner &&
+      !process.env.ADMIN_USERNAMES?.split(',').includes(commenter)
+    )
+      return;
 
     if (!isBountyComment(commentBody)) return;
 
@@ -76,7 +80,7 @@ export default (app: Probot) => {
 
     if (!amount) {
       const issueComment = context.issue({
-        body: `Please send a valid bounty amount @${context.payload.sender.login}. Example command to send bounty: "/bounty $ 300", this will send $300 to contributor. `,
+        body: `Please send a valid bounty amount @${context.payload.sender.login}. Example command to send bounty: "/bounty $300", this will send $300 to contributor. `,
       });
       await context.octokit.issues.createComment(issueComment);
       return;
