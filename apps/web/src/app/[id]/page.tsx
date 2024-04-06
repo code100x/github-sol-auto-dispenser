@@ -52,7 +52,7 @@ export default async function RepoIdPage(props: {
         List of all bounties
       </h1>
 
-      {bounties.length ? (
+      {!bounties.length ? (
         <div className="px-4 text-xs lg:text-base py-2 rounded-full bg-secondary text-primary max-w-md mx-auto">
           You haven't given out any bounties for this repo
         </div>
@@ -72,7 +72,7 @@ export default async function RepoIdPage(props: {
               {bounties.map((bounty) => (
                 <TableRow key={bounty.id}>
                   <TableCell className="font-medium">{bounty.id}</TableCell>
-                  <TableCell>{'PAID'}</TableCell>
+                  <TableCell>{bounty.status}</TableCell>
                   <TableCell className="text-right">{bounty.amount}</TableCell>
                   <TableCell className="text-right">
                     {bounty.createdAt.toDateString()}
