@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import prisma from '@repo/database/client';
 import { AddApp } from './add-app';
 import { Repo } from './repo';
+import { AddRepo } from './add-repo';
 
 export const Dashboard = async () => {
   const session = await getServerSession(authOptions);
@@ -16,12 +17,15 @@ export const Dashboard = async () => {
 
   if (!res.length)
     return (
-      <>
-        <h1 className="text-center">
+      <section className="p-2 sm:p-4 md:p-10 flex flex-col items-center gap-5">
+        <h1 className="lg:text-5xl font-bold text-center text-4xl">
           You don't have any associated github repos yet
         </h1>
-        <AddApp />
-      </>
+        <div className="px-4 text-xs lg:text-base py-2 rounded-full bg-secondary text-primary">
+          Add One Right Now
+        </div>
+        <AddRepo />
+      </section>
     );
 
   return (
@@ -40,6 +44,7 @@ export const Dashboard = async () => {
             <Repo title={repo.name} owner={repo.ownerUsername} key={repo.id} />
           );
         })}
+        <AddRepo />
       </div>
       <div>Add more + </div>
       <AddApp />
