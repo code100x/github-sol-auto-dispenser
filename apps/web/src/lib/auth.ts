@@ -14,7 +14,6 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, user }: any) {
-      console.log({ session, user });
       return {
         user: {
           id: user.id,
@@ -25,11 +24,6 @@ export const authOptions = {
     },
 
     async signIn({ user, account, profile }: any) {
-      console.log({
-        user,
-        account,
-        profile,
-      });
       await prisma.user.upsert({
         create: {
           id: profile.id.toString(),

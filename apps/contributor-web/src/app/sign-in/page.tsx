@@ -6,7 +6,6 @@ import SignInButton from '@/components/SignInButton';
 
 const SignInPage = async () => {
   const session = await getServerSession(options);
-  console.log({ session });
   if (session) {
     redirect('/profile');
   } else {

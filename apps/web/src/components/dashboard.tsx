@@ -1,7 +1,6 @@
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import prisma from '@repo/database/client';
-import { AddApp } from './add-app';
 import { Repo } from './repo';
 import { AddRepo } from './add-repo';
 
@@ -41,13 +40,16 @@ export const Dashboard = async () => {
       <div className="grid md:grid-cols-3 gap-10 sm:grid-cols-2 grid-cols-1 m-5 p-10 md:m-10 border-2 rounded-xl border-black dark:border-white">
         {res.map((repo: any) => {
           return (
-            <Repo title={repo.name} owner={repo.ownerUsername} key={repo.id} />
+            <Repo
+              title={repo.name}
+              owner={repo.ownerUsername}
+              key={repo.id}
+              id={repo.id}
+            />
           );
         })}
         <AddRepo />
       </div>
-      <div>Add more + </div>
-      <AddApp />
     </section>
   );
 };
