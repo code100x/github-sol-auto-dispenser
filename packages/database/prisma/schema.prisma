@@ -7,11 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum PaymentStatus {
+  PAID
+  NOTPAID
+}
+
 model BountyTable {
-  id        Int      @id @default(autoincrement())
+  id        Int           @id @default(autoincrement())
   amount    Int
-  createdAt DateTime @default(now())
+  createdAt DateTime      @default(now())
   repoId    Int
+  status    PaymentStatus @default(NOTPAID)
   username  String
 }
 

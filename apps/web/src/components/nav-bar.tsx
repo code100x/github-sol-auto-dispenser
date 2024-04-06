@@ -6,6 +6,7 @@ import { RefreshCcw, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ThemeToggler } from './theme-toggler';
+import Link from 'next/link';
 
 export const NavBar = () => {
   const session = useSession();
@@ -14,7 +15,9 @@ export const NavBar = () => {
     <>
       <nav className="fixed z-50 top-0 px-4 w-full h-16 border-b shadow-sm bg-background/80 backdrop-blur-md flex items-center gap-2 print:hidden">
         <div className="md:max-w-screen-2xl mx-auto flex items-center justify-between w-full">
-          <Sparkles />
+          <Link href="/">
+            <Sparkles />
+          </Link>
           <div className="flex items-center gap-2">
             {session?.data?.user ? (
               <div className="flex items-center space-x-2">

@@ -8,14 +8,12 @@ export default async function Home() {
   if (!session)
     return (
       <main>
-        <NavBar />
         <Hero />
       </main>
     );
 
   return (
     <main>
-      <NavBar />
       <Dashboard />
     </main>
   );

@@ -86,15 +86,18 @@ export async function sendSolanaToAnotherAddress(
     ).blockhash;
     transaction.sign(senderAccount);
 
-    // Send the transaction
     const signature = await connection.sendRawTransaction(
       transaction.serialize()
     );
 
     console.log('Transaction sent:', signature);
 
-    // remove bounties of the user
-    await db.bountyTable.deleteMany({ where: { username } });
+    await db.bountyTable.updateMany({
+      data: {
+        status: 'PAID',
+      },
+      where: { username },
+    });
   } catch (error: any) {
     throw new Error(error.message);
   }
