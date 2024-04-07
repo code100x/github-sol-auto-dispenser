@@ -14,7 +14,6 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, user }: any) {
-      console.log({ session, user });
       return {
         user: {
           id: user.id,
@@ -25,28 +24,23 @@ export const authOptions = {
     },
 
     async signIn({ user, account, profile }: any) {
-      console.log({
-        user,
-        account,
-        profile,
-      });
-      try {
-        
-         await prisma.user.upsert({
-      
+
+      try {     
+        await prisma.user.upsert({
         create: {
           id: profile.id.toString(),
-          email: profile.email ?? '',
+          email: user.email ?? '',
           image: profile.avatar_url ?? profile.gravatar_id,
           name: profile.login,
         },
         update: {
           name: profile.login,
           image: profile.avatar_url ?? profile.gravatar_id,
+          email: user.email,
         },
         where: {
           id: profile.id.toString(),
-          email: profile.email,
+          email: user.email,
         },
         
       });

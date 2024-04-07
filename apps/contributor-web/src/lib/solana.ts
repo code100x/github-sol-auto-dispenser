@@ -67,11 +67,22 @@ export async function sendSolanaToAnotherAddress(receiverWalletAddress: string) 
 
     transaction.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
     transaction.sign(senderAccount);
-    const signature = await connection.sendRawTransaction(transaction.serialize());
+
+
+    const signature = await connection.sendRawTransaction(
+      transaction.serialize()
+    );
+
     console.log('Transaction sent:', signature);
-    await db.bountyTable.deleteMany({ where: { username } });
-  } catch (error) {
-    console.error('Error during Solana transaction:', error);
-    throw error;
+
+    await db.bountyTable.updateMany({
+      data: {
+        status: 'PAID',
+      },
+      where: { username },
+    });
+  } catch (error: any) {
+    throw new Error(error.message);
+
   }
 }
