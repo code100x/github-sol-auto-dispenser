@@ -30,7 +30,10 @@ export const authOptions = {
         account,
         profile,
       });
-      await prisma.user.upsert({
+      try {
+        
+         await prisma.user.upsert({
+      
         create: {
           id: profile.id.toString(),
           email: profile.email ?? '',
@@ -45,8 +48,15 @@ export const authOptions = {
           id: profile.id.toString(),
           email: profile.email,
         },
+        
       });
-      return true;
+        return true;
+      } catch (error) {
+      console.log(error)
+        
+      }
+     
+    
     },
   },
 };

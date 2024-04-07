@@ -1,3 +1,4 @@
+// BountyTable.jsx
 'use client';
 import React from 'react';
 
@@ -13,38 +14,50 @@ export interface BountyTableProps {
 }
 
 export const BountyTable = ({ data }: BountyTableProps) => {
+  if (data.length === 0) {
+    return <p className="text-center my-5 text-lg text-gray-500">No bounties received yet.</p>;
+  }
+
   return (
-    <div>
-      <table
-        className=" border border-black m-5"
-        cellSpacing={5}
-        cellPadding={20}
-      >
-        <thead>
-          <tr className="border border-black">
-            <th>ID</th>
-            <th>Username</th>
-            <th>Amount</th>
-            <th>Rewarded On</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, key) => {
-            return (
-              <tr
-                key={'bounty_table_row_' + key}
-                className="border border-black"
-              >
-                <td>{key + 1}</td>
-                <td>{item.username}</td>
-                <td>$ {item.amount}</td>
-                <td>{new Date(item.createdAt).toString()}</td>
+    <div className="mt-5">
+      <div className="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style={{ maxHeight: "60vh" }}>
+        <table className="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+          <thead>
+            <tr className="text-left">
+              <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
+                ID
+              </th>
+              <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
+                Username
+              </th>
+              <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
+                Amount
+              </th>
+              <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
+                Rewarded On
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="py-1 px-3 border-b border-gray-200">
+                  {index + 1}
+                </td>
+                <td className="py-1 px-3 border-b border-gray-200">
+                  {item.username}
+                </td>
+                <td className="py-1 px-3 border-b border-gray-200">
+                  ${item.amount.toFixed(2)}
+                </td>
+                <td className="py-1 px-3 border-b border-gray-200">
+                  {new Date(item.createdAt).toLocaleDateString()}
+                </td>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      {data.length === 0 && <p>No bounties received yet.</p>}
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
