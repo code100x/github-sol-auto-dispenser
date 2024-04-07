@@ -1,5 +1,4 @@
 // BountyTable.jsx
-'use client';
 import React from 'react';
 
 export type TBountyData = {

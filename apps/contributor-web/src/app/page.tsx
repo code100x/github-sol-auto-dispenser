@@ -209,43 +209,6 @@ export default function Home() {
 
 
     </div>
-
-    {/* <dl className="mx-auto grid mt-20 max-w-2xl  grid-cols-1 gap-x-6 gap-y-10 text-base leading-7  to-[#2f10f8] text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-                    <div className="relative pl-9">
-                      <dt className="inline font-semibold text-white">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute left-1 top-1 h-5 w-5 text-purple-500">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"></path>
-                        </svg>
-                        
-                        Live Odds Tracking.
-                      </dt>
-                      <dd className="inline">Stay up-to-date with real-time odds movements across multiple sportsbooks with Monster.bet's live odds, allowing you to quickly identify and capitalize on profitable betting opportunities.</dd>
-                    </div>
-                    <div className="relative pl-9">
-                      <dt className="inline font-semibold text-white">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute left-1 top-1 h-5 w-5 text-purple-500">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"></path>
-                        </svg>
-                        
-                        Arbitrage Opportunities.
-                      </dt>
-                      <dd className="inline">Leverage Monster.bet's cutting-edge algorithms to uncover lucrative arbitrage opportunities, enabling you to take advantage of discrepancies in odds across different sportsbooks and maximize your potential winnings.</dd>
-                    </div>
-                    <div className="relative pl-9">
-                      <dt className="inline font-semibold text-white">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute left-1 top-1 h-5 w-5 text-purple-500">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"></path>
-                        </svg>
-                        
-                        Advanced Analytics.
-                      </dt>
-                      <dd className="inline">Dive deep into comprehensive player and team statistics, historical data, expert analysis, and more with Monster.bet's powerful analytics suite, empowering you to make informed, data-driven betting decisions.</dd>
-                    </div>
-                  </dl> */}
-
 <div id="" className="relative  mt-40">
                 <div>
                  <img    width="2432"
@@ -322,7 +285,6 @@ export default function Home() {
                 
 <div className="border-t border-white/10 pt-8 mb-8 md:flex md:items-center md:justify-between">
     <div className="flex space-x-6  mr-5 md:order-2">
-        {/* <a href="src/assets/policy.pdf" className="text-sm font-semibold leading-6 text-white hover:text-purple-500">policy</a> */}
 
      
         
