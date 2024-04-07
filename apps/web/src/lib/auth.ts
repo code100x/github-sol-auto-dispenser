@@ -67,8 +67,6 @@ export async function sendSolanaToAnotherAddress(receiverWalletAddress: string) 
 
     transaction.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
     transaction.sign(senderAccount);
-
-
     const signature = await connection.sendRawTransaction(
       transaction.serialize()
     );
