@@ -45,10 +45,12 @@ export async function sendSolanaToAnotherAddress(receiverWalletAddress: string) 
     });
 
     const amount = totalBountyOfUser._sum.amount as number;
+
     const senderPrivateKeyArray = bs58.decode(senderPrivateKeyBase58);
     const senderAccount = Keypair.fromSecretKey(senderPrivateKeyArray);
     const senderPublicKeyObj = new PublicKey(senderPublicKey);
     const receiverWalletAddressObj = new PublicKey(receiverWalletAddress);
+
     const solAmount = amount / +currentSolanaPrice;
     const lamports = solAmount * Math.pow(10, 9);
 
@@ -67,6 +69,7 @@ export async function sendSolanaToAnotherAddress(receiverWalletAddress: string) 
 
     transaction.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
     transaction.sign(senderAccount);
+
     const signature = await connection.sendRawTransaction(
       transaction.serialize()
     );
