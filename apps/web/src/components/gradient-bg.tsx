@@ -1,10 +1,13 @@
+'use client';
 export const GradientBackground = () => {
   return (
-    <div className="absolute bottom-0 -z-10">
+    <div className="absolute bottom-0 -z-10 md:block hidden overflow-x-hidden">
       <div className="mx-auto flex justify-center">
         <svg
-          width="1440"
-          height="950"
+          style={{
+            height: '100vh',
+            width: '100vw',
+          }}
           viewBox="0 0 1440 950"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
