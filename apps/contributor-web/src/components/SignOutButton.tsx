@@ -6,7 +6,6 @@ import { signOut } from 'next-auth/react';
 const SignOutButton = () => {
   return (
     <button
-      className="bg-slate-600 px-4 py-2 text-white"
       onClick={() => signOut({ callbackUrl: '/' })}
       className="flex items-center justify-center w-full px-6 py-3 text-sm font-medium text-[#f1f1f1] transition duration-150 ease-in-out bg-gradient-to-r from-[#8e2de2] to-[#4a00e0] hover:bg-gradient-to-l rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white animate-fade-in-up"
     >
