@@ -1,15 +1,17 @@
 import { Probot } from 'probot';
 import {
   addNewBounty,
-  addRepo,
   extractAmount,
+  getOwnerId,
   isBountyComment,
+  modifyRepos,
 } from './utils.js';
 import {
   sendBountyMessageToDiscord,
   sendIssueOpenToDiscord,
   sendPrOpenToDiscord,
 } from './discord.js';
+import { RepoSchemaType } from '@repo/schema';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -17,18 +19,60 @@ dotenv.config();
 export default (app: Probot) => {
   app.log.info('Yay! The app was loaded!');
 
-  app.webhooks.on('installation_repositories', (context) => {
-    if (context.payload.action === 'added') {
-      const repo = context.payload.repositories_added[0];
-      const user = context.payload.sender;
+  app.webhooks.on('installation.created', async (context) => {
+    const { repositories, sender } = context.payload;
+    if (!repositories) return;
 
-      addRepo({
-        ownerId: user.id,
-        ownerUsername: user.login,
-        repoId: repo.id,
-        repoName: repo.full_name,
-      });
-    }
+    const addedRepos: RepoSchemaType[] = repositories.map((repo) => ({
+      ownerId: sender.id,
+      ownerUsername: sender.login,
+      repoId: repo.id,
+      repoName: repo.full_name,
+    }));
+
+    await modifyRepos(addedRepos, []);
+    app.log.debug('The app was installed');
+  });
+
+  app.webhooks.on('installation.deleted', async (context) => {
+    const { repositories, sender } = context.payload;
+
+    if (!repositories) return;
+
+    const removedRepos: RepoSchemaType[] = repositories.map((repo) => ({
+      ownerId: sender.id,
+      ownerUsername: sender.login,
+      repoId: repo.id,
+      repoName: repo.full_name,
+    }));
+
+    await modifyRepos([], removedRepos);
+    app.log.debug('The app was installed');
+  });
+
+  app.webhooks.on('installation_repositories.added', async (context) => {
+    const { repositories_added, sender } = context.payload;
+    const addedRepos: RepoSchemaType[] = repositories_added.map((repo) => ({
+      ownerId: sender.id,
+      ownerUsername: sender.login,
+      repoId: repo.id,
+      repoName: repo.full_name,
+    }));
+
+    await modifyRepos(addedRepos, []);
+  });
+
+  app.webhooks.on('installation_repositories.removed', async (context) => {
+    const { repositories_removed, sender } = context.payload;
+
+    const removedRepos: RepoSchemaType[] = repositories_removed.map((repo) => ({
+      ownerId: sender.id,
+      ownerUsername: sender.login,
+      repoId: repo.id,
+      repoName: repo.full_name,
+    }));
+
+    await modifyRepos([], removedRepos);
   });
 
   app.webhooks.on('issues.opened', async (context) => {
@@ -67,10 +111,14 @@ export default (app: Probot) => {
     const commentBody = context.payload.comment.body;
     const commenter = context.payload.comment.user.login;
     const isRepoOwner = context.payload.repository.owner.login === commenter;
+    const id = await getOwnerId({ id: context.payload.repository.id });
+    if (!id) return;
+    const isBotAddedByUser = context.payload.comment.user.id === id;
 
     if (
       !isRepoOwner &&
-      !process.env.ADMIN_USERNAMES?.split(',').includes(commenter)
+      !process.env.ADMIN_USERNAMES?.split(',').includes(commenter) &&
+      !isBotAddedByUser
     )
       return;
 

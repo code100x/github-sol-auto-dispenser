@@ -19,7 +19,8 @@
   "dependencies": {
     "axios": "^1.6.8",
     "discord.js": "^14.14.1",
-    "probot": "^13.0.1"
+    "probot": "^13.0.1",
+    "@repo/schema": "*"
   },
   "devDependencies": {
     "@repo/database": "*",

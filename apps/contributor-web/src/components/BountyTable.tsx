@@ -6,6 +6,7 @@ export type TBountyData = {
   username: string;
   amount: number;
   createdAt: Date;
+  status: 'PAID' | 'NOTPAID';
 };
 
 export interface BountyTableProps {
@@ -14,12 +15,19 @@ export interface BountyTableProps {
 
 export const BountyTable = ({ data }: BountyTableProps) => {
   if (data.length === 0) {
-    return <p className="text-center my-5 text-lg text-gray-500">No bounties received yet.</p>;
+    return (
+      <p className="text-center my-5 text-lg text-gray-500">
+        No bounties received yet.
+      </p>
+    );
   }
 
   return (
     <div className="mt-5">
-      <div className="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style={{ maxHeight: "60vh" }}>
+      <div
+        className="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative"
+        style={{ maxHeight: '60vh' }}
+      >
         <table className="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
           <thead>
             <tr className="text-left">
@@ -34,6 +42,9 @@ export const BountyTable = ({ data }: BountyTableProps) => {
               </th>
               <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
                 Rewarded On
+              </th>
+              <th className="py-2 px-3 border-b border-gray-200 bg-gray-50">
+                Claimed
               </th>
             </tr>
           </thead>
@@ -51,6 +62,9 @@ export const BountyTable = ({ data }: BountyTableProps) => {
                 </td>
                 <td className="py-1 px-3 border-b border-gray-200">
                   {new Date(item.createdAt).toLocaleDateString()}
+                </td>
+                <td className="py-1 px-3 border-b border-gray-200">
+                  {item.status === 'PAID' ? 'Yes' : 'No'}
                 </td>
               </tr>
             ))}

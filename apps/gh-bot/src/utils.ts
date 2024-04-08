@@ -1,3 +1,4 @@
+import { RepoSchemaType } from '@repo/schema';
 import axios from 'axios';
 import 'dotenv/config';
 
@@ -26,8 +27,8 @@ export const addNewBounty = async (payload: IAddNewBountyParams) => {
     console.log(endpoint);
     const response = await axios.post(endpoint, payload, {
       headers: {
-        'x-bot-token': process.env.BOT_SECRET!
-      }
+        'x-bot-token': process.env.BOT_SECRET!,
+      },
     });
 
     console.log(response);
@@ -39,23 +40,25 @@ export const addNewBounty = async (payload: IAddNewBountyParams) => {
     console.log(error.message);
   }
 };
-
-interface IAddNewRepoParams {
-  ownerId: number;
-  ownerUsername: string;
-  repoId: number;
-  repoName: string;
-}
-
-export const addRepo = async (payload: IAddNewRepoParams) => {
+export const modifyRepos = async (
+  addedRepos: RepoSchemaType[],
+  removedRepos: RepoSchemaType[]
+) => {
   try {
     const endpoint = process.env.ADMIN_SERVER_URL + '/api/github';
     console.log(endpoint);
-    const response = await axios.post(endpoint, payload, {
-      headers: {
-        'x-bot-token': process.env.BOT_SECRET!,
+    const response = await axios.post(
+      endpoint,
+      {
+        addedRepos,
+        removedRepos,
+      },
+      {
+        headers: {
+          'x-bot-token': process.env.BOT_SECRET!,
+        },
       }
-    });
+    );
     console.log(response);
 
     // const { data } = response;
@@ -64,5 +67,20 @@ export const addRepo = async (payload: IAddNewRepoParams) => {
   } catch (error: any) {
     console.error(error);
     // throw new Error(error.message);
+  }
+};
+
+export const getOwnerId = async ({ id }: { id: number }) => {
+  try {
+    const endpoint = process.env.ADMIN_SERVER_URL + '/api/installation/' + id;
+    const response = await axios.get(endpoint, {
+      headers: {
+        'x-bot-token': process.env.BOT_SECRET!,
+      },
+    });
+    console.log(response.data);
+    return response.data.addedById;
+  } catch (error: any) {
+    console.error(error);
   }
 };

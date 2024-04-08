@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server';
 import db from '@repo/database/client';
-import { bountySchema } from '@/schemas/bounty';
+import { bountySchema } from '@repo/schema/index';
 
 export async function POST(request: Request) {
   try {
     const botToken = request.headers.get('x-bot-token');
     if (botToken !== process.env.BOT_SECRET) {
-      return NextResponse.json({
-        error: 'Unauthorized',
-      }, {
-        status: 401
-      })
+      return NextResponse.json(
+        {
+          error: 'Unauthorized',
+        },
+        {
+          status: 401,
+        }
+      );
     }
     const rawPayload = await request.json();
     const res = bountySchema.safeParse(rawPayload);
