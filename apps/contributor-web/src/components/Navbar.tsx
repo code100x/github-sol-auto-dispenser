@@ -6,24 +6,36 @@ const Navbar = async () => {
   const session = await getServerSession(options);
 
   return (
-    <nav className="  bg-gradient-to-r  from-[#c0c1ee] to-[#2f10f8] py-4 shadow-md">
+    <nav className="  bg-gradient-to-r  from-[#c0c1ee] to-[#2f10f8] p-4 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-[#352c43] text-2xl font-bold animate-fade-in-up">
+        <Link
+          href="/"
+          className="text-[#352c43] text-2xl font-bold animate-fade-in-up"
+        >
           SolidPull
         </Link>
-        <ul className="flex gap-x-6  from-[#c0c1ee] to-[#2f10f8] font-medium animate-fade-in-up">
+        <ul className="gap-x-6  from-[#c0c1ee] to-[#2f10f8] font-medium animate-fade-in-up hidden md:flex">
           <li>
-            <Link href="/#demoVideo" className="hover:text-[#8e2de2] transition duration-300">
+            <Link
+              href="/#demoVideo"
+              className="hover:text-[#8e2de2] transition duration-300"
+            >
               Demo
             </Link>
           </li>
           <li>
-            <Link href="/#Features" className="hover:text-[#8e2de2] transition duration-300">
+            <Link
+              href="/#Features"
+              className="hover:text-[#8e2de2] transition duration-300"
+            >
               Features
             </Link>
           </li>
           <li>
-            <Link href="/#Community" className="hover:text-[#8e2de2] transition duration-300">
+            <Link
+              href="/#Community"
+              className="hover:text-[#8e2de2] transition duration-300"
+            >
               Community
             </Link>
           </li>
