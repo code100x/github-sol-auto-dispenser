@@ -15,14 +15,17 @@ const ProfilePage = async () => {
     return redirect('/');
   }
 
-  const githubUserId = extractUserIdFromAvatarUrl(session.user?.image as string);
+  const githubUserId = extractUserIdFromAvatarUrl(
+    session.user?.image as string
+  );
   const username = await getGithubUsernamefromUserId(githubUserId as string);
   const bounties = await db.bountyTable.findMany({
     where: { username: username },
   });
+
   const totalBountyOfUser = await db.bountyTable.aggregate({
     _sum: { amount: true },
-    where: { username: username },
+    where: { username: username, status: 'NOTPAID' },
   });
 
   return (
@@ -47,9 +50,13 @@ const ProfilePage = async () => {
           )}
           <div>
             {session?.user?.name && (
-              <h2 className="text-2xl font-semibold text-gray-800">Hello, {session.user.name}!</h2>
+              <h2 className="text-2xl font-semibold text-gray-800">
+                Hello, {session.user.name}!
+              </h2>
             )}
-            <p className="text-gray-600">Explore and claim your bounties with ease.</p>
+            <p className="text-gray-600">
+              Explore and claim your bounties with ease.
+            </p>
           </div>
         </div>
 
@@ -57,12 +64,22 @@ const ProfilePage = async () => {
 
         {totalBountyOfUser._sum.amount && totalBountyOfUser._sum.amount > 0 && (
           <div className="bg-white shadow rounded-lg p-4 mt-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Claim Your Bounty</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              Claim Your Bounty
+            </h3>
             <div className="space-y-4">
-              <p>Total bounty: <span className="font-bold">${totalBountyOfUser._sum.amount}</span></p>
+              <p>
+                Total bounty:{' '}
+                <span className="font-bold">
+                  ${totalBountyOfUser._sum.amount}
+                </span>
+              </p>
               <form action={sendSolana} className="space-y-2">
                 <div className="mb-6">
-                  <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="address"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
                     Solana Wallet Address:
                   </label>
                   <input
