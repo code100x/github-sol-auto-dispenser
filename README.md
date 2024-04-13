@@ -1,6 +1,34 @@
-# GitHub-SOL-Auto-Dispenser
+# Gh Sol Dispenser
 
-GitHub-SOL-Auto-Dispenser is a decentralized application that rewards contributors with USDC (USD Coin) tokens for their pull request contributions on GitHub repositories. It leverages the power of the Ethereum blockchain and the Ethers.js library to facilitate secure and transparent token transfers.
+## About
+
+It uses [Turborepo](https://turborepo.org) and contains:
+
+```text
+apps
+  └─ contributor-web
+  |   ├─ next-app
+  |   ├─ styling with tailwindcss
+  |   ├─ does solona transfer and web3 stuff
+  |   └─ depends on packages/db
+  ├─ gh-bot
+  |   ├─ github bot built on top of probot
+  |   ├─ api calls to admin-web for db stuff
+  |   └─ messages the events to discord (optional)
+  └─ admin-web
+      ├─ next-app
+      ├─ styling with tailwindcss & shadcn
+      └─ depends on packages/db
+
+packages
+  ├─ zod
+  |   └─ zod schema to share throughout the repo
+  └─ database
+      ├─ prisma ORM
+      ├─ exposes prisma singleton for all applications
+      └─ scripts to interact with db
+```
+
 
 ## Features
 
