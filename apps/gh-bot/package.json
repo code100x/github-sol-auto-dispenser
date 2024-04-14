@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "npm run build && probot run ./lib/index.js",
+    "start": "npm run build && node ./lib/index.js",
     "dev": "nodemon"
   },
   "dependencies": {
