@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@repo/ui/lib/utils';
 import { PlusIcon } from 'lucide-react';
 import Link from 'next/link';
 
