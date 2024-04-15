@@ -4,6 +4,11 @@ const nextConfig = {
     domains: ['github-readme-stats.vercel.app'],
     dangerouslyAllowSVG: true,
   },
+  transpilePackages: 
+  [
+    "@repo/ui",
+    "@repo/tailwind-config",
+  ]
 };
 
 export default nextConfig;
