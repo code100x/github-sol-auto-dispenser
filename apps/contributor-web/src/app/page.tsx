@@ -5,25 +5,25 @@ import logo from '../../public/logo.png';
 
 export default function Home() {
   return (
-  <><div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r  to-[#2f10f8] text-gray-300 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-starry-night  z-[-1] animate-starry-night"></div>
+  <><div className="flex flex-col items-center relative overflow-hidden">
       <img  
         src={logo.src}
-        alt="LOGO" />
-      <div className="flex items-center mb-8   from-[#c0c1ee] to-[#2f10f8] animate-fade-in-up">
-        <h1 className="text-4xl font-bold from-[#c0c1ee] to-[#2f10f8]  text-[#352c43]">
-<span className="text-[#f2f2f2] select-none font-montserrat">SOLIDPULL</span>
-
+        alt="LOGO" 
+        className='drop-shadow-[0_0px_100px_#f97316] hover:drop-shadow-[0_5px_5px_rgba(245,158,11,1)] duration-500'
+        />
+      <div className="flex items-center mb-8 from-[#c0c1ee] to-[#2f10f8] animate-fade-in-up">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-300 via-pink-400 to-orange-200 bg-clip-text text-transparent drop-shadow-xl select-none font-montserrat">
+          SOLIDPULL
         </h1>
       </div>
       <div className="flex flex-col items-center animate-fade-in-up">
-        <h2 className="text-2xl font-bold mb-4 flex items-center">
-          <span className="icon  mr-2">💰</span>
-          <span className="shining-text select-none">
+        <h2 className="text-3xl font-bold mb-4 flex items-center gap-x-2">
+          <span className="icon">💰</span>
+          <span className="bg-gradient-to-r from-slate-50 via-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
             GitHub Gold Rush - Pull, Earn, Repeat!
           </span>
         </h2>
-        <p className="text-lg text-[#352c43] select-none">
+        <p className="text-lg font-medium select-none text-transparent bg-gradient-to-r from-slate-400/70 via-slate-300/70 to-pink-200/70 bg-clip-text">
           A platform for developers to earn money by contributing to open-source projects.
         </p>
       </div>
