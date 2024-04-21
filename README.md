@@ -29,7 +29,6 @@ packages
       └─ scripts to interact with db
 ```
 
-
 ## Features
 
 - **Automatic Reward Distribution**: The app listens to GitHub pull request events and automatically calculates and distributes USDC rewards to contributors based on predefined rules.

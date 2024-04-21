@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   description: 'GitHub Gold Rush - Pull, Earn, Repeat!',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body
