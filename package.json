@@ -7,7 +7,7 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:generate" : "cd packages/database && npx prisma generate",
-    "test" : "turbo lint && format"
+    "test" : "turbo lint && npm run format"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
