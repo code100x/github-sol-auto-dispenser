@@ -14,12 +14,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-      
-      - name: Install Dependencies
-        run: npm install
-      
-      - name: Generate prisma client
-        run: npm run db:generate
         
       - name: Run tests
         run: npm run test
