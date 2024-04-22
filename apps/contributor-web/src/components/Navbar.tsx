@@ -8,8 +8,8 @@ const Navbar = async () => {
   const session = await getServerSession(options);
 
   return (
-    <nav className="py-6">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="wrapper py-6">
+      <div className="flex items-center justify-between">
         <Link
           href="/"
           className="text-3xl font-bold tracking-tight bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl"

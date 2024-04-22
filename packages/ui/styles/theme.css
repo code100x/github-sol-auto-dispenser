@@ -34,6 +34,10 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --wrapper-padding-inline: 1rem;
+    --section-padding-block: 3rem;
+    --wrapper-max-width: 80rem
   }
 
   .dark {
@@ -79,9 +83,61 @@
   body {
     scrollbar-gutter: stable;
   }
-  
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+  section{
+    padding-block: var(--section-padding-block)
+  }
+}
+
+@layer components {
+  .wrapper {
+   @apply mx-auto;
+    max-width: var(--wrapper-max-width);
+    padding-inline: var(--wrapper-padding-inline);
+  }
+  .full-width-split-screen{
+    padding-block: 0;
+  }
+  .full-width-split-screen > :not(img) {
+    padding-block: var(--section-padding-block);
+    padding-inline: var(--wrapper-padding-inline);
+  }
+  
+  .full-width-split-screen {
+    display: grid;
+    grid-template-columns: 
+      minmax(var(--wrapper-padding-inline), 1fr)
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(var(--wrapper-padding-inline), 1fr);
+    position: relative;
+  }
+  .full-width-split-screen > img {
+    @apply w-full h-full object-cover;
+  }
+  .full-width-split-screen > img:first-child {
+    grid-column: 1 / 3;
+  }
+  .full-width-split-screen > img:last-child {
+    grid-column: 3 / -1;
+  }
+  .full-width-split-screen > :not(img) {
+    display: grid;
+    align-content: center;
+    justify-items: start;
+  }
+  .full-width-split-screen > :not(img):first-child {
+    padding-left: 0;
+    grid-column: 2 / 3;
+  }
+  .full-width-split-screen > :not(img):last-child {
+    padding-right: 0;
+    grid-column: 3 / 4;
   }
 }
