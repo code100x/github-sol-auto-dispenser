@@ -212,74 +212,68 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="flex flex-col items-center relative overflow-hidden">
-        <div className="mx-auto mt-10 max-w-2xl   to-[#2f10f8] text-gray-300 sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-purple-900">
-            Everything you need
-          </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Empowering Open-Source Collaboration
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            SolidPull simplifies bounty management and payment security,
-            empowering contributors and maintainers alike to drive open-source
-            projects forward. Join us in revolutionizing collaborative
-            development.
-          </p>
-        </div>
-
-        <img
-          src="/main_test1.png"
-          alt="App screenshot"
-          className="mx-auto my-4 rounded-lg shadow-md"
-          width="800"
-          height="600"
-        />
-      </div>
-      <div id="" className="relative  mt-40">
-        <div>
+      <section>
+        <div className='wrapper grid place-items-center gap-8'>
+          <div className="grid gap-5 text-center max-w-[70ch]">
+            <h2 className="text-base font-semibold leading-7 text-slate-300">
+              Everything you need
+            </h2>
+            <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Empowering Open-Source Collaboration
+            </p>
+            <p className="text-lg leading-8 text-slate-300">
+              SolidPull simplifies bounty management and payment security,
+              empowering contributors and maintainers alike to drive open-source
+              projects forward. Join us in revolutionizing collaborative
+              development.
+            </p>
+          </div>
           <img
-            width="2432"
-            height="1442"
-            className="h-full w-full bg-gray-50  shadow-md object-cover rounded-lg  lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2"
-            src="/main_test3.png"
-            alt=""
-          ></img>
+            src="/main_test1.png"
+            alt="App screenshot"
+            className="w-full max-w-5xl rounded-lg shadow-[0_0px_200px_#f9731620] ring-1 ring-neutral-700"
+          />
         </div>
-        <div className="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
-          <h2 className="text-base font-semibold leading-8 text-purple-400">
+      </section>
+      <section className='full-width-split-screen gap-20'>
+        <img
+          width="2432"
+          height="1442"
+          className="bg-white/5 shadow-[0_0px_100px_#f9731645] rounded-lg object-center ring-1 ring-neutral-700"
+          src="/main_test3.png"
+          alt=""
+        />
+        <div className="gap-5">
+          <h2 className="text-base font-semibold leading-8 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
             The Future of Open-Source in Crypto
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            {' '}
-            Revolutionizing Open-Source with SolidPull{' '}
+          <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Revolutionizing Open-Source with SolidPull
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
+          <p className="text-lg leading-8 text-slate-300">
             The Ethereum (ETH) ERC-20 utility token driving SolidPull's
             ecosystem. $SOLID offers users exclusive benefits, including instant
             bounty claim , early feature access, more.
           </p>
-          <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
+          <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-5">
             <div className="flex flex-col gap-y-3 border-l border-gray-white pl-6">
-              <dt className="text-sm leading-6 text-gray-300">
-                {' '}
-                claim bounty{' '}
+              <dt className="text-sm leading-6 text-slate-300">
+                claim bounty
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-white">
-                {' '}
-                No Fees, Direct Payments{' '}
+                No Fees, Direct Payments
               </dd>
             </div>
             <div className="flex flex-col gap-y-3 border-l border-gray-white pl-6">
-              <dt className="text-sm leading-6 text-gray-300">
+              <dt className="text-sm leading-6 text-slate-300">
                 Organized Repository Management
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-white">
-                Effortlessly manage repositories{' '}
+                Effortlessly manage repositories
               </dd>
             </div>
             <div className="flex flex-col gap-y-3 border-l border-gray-white pl-6">
-              <dt className="text-sm leading-6 text-gray-300">
+              <dt className="text-sm leading-6 text-slate-300">
                 enhanced collaboration
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-white">
@@ -296,71 +290,70 @@ export default function Home() {
             </div>
           </dl>
         </div>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
-            <img src={logo.src} className="h-30 "></img>
+      </section>
+      <section>
+        <div className='wrapper grid grid-cols-2'>
+          <div className='grid gap-4 content-center pr-20'>
+            <img src={logo.src} className="h-30"></img>
             <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">
               How to Claim Your Bounty with SolidPull?{' '}
             </h2>
-            <p className="mt-4 text-base leading-7 text-black-300">
+            <p className="text-base leading-7 text-slate-300">
               Note: Note: The bounty will be available for claiming upon the
               merge of your pull request.
             </p>
           </div>
-          <div className="mt-10 lg:col-span-7 lg:mt-0">
-            <dl className="space-y-10">
-              <div>
-                <dt className="text-base font-semibold leading-7 text-white">
-                  Step 1. Copy Your Public Wallet Key
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-300">
-                  If you don't have a crypto wallet, set up one through
-                  metamask.io. Once your pull request is merged, simply copy
-                  your public wallet key.
-                </dd>
-              </div>
+          <div className='grid gap-10'>
+            <dl className='grid gap-2'>
+              <dt className="text-base font-semibold leading-7 text-white">
+                Step 1. Copy Your Public Wallet Key
+              </dt>
+              <dd className="text-base leading-7 text-slate-300">
+                If you don't have a crypto wallet, set up one through
+                metamask.io. Once your pull request is merged, simply copy
+                your public wallet key.
+              </dd>
+            </dl>
 
-              <div>
-                <dt className="text-base font-semibold leading-7 text-white">
-                  Step 2. Sign Up on SolidPull
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-300">
-                  Follow the link provided by our bot in the repository comment
-                  to sign up on SolidPull..
-                </dd>
-              </div>
+            <dl className='grid gap-2'>
+              <dt className="text-base font-semibold leading-7 text-white">
+                Step 2. Sign Up on SolidPull
+              </dt>
+              <dd className="text-base leading-7 text-slate-300">
+                Follow the link provided by our bot in the repository comment
+                to sign up on SolidPull..
+              </dd>
+            </dl>
 
-              <div>
-                <dt className="text-base font-semibold leading-7 text-white">
-                  Step 3. Paste Your Wallet Key
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-300">
-                  After signing up, paste your public wallet key into the
-                  designated field.
-                </dd>
-              </div>
+            <dl className='grid gap-2'>
+              <dt className="text-base font-semibold leading-7 text-white">
+                Step 3. Paste Your Wallet Key
+              </dt>
+              <dd className="text-base leading-7 text-slate-300">
+                After signing up, paste your public wallet key into the
+                designated field.
+              </dd>
+            </dl>
 
-              <div>
-                <dt className="text-base font-semibold leading-7 text-white">
-                  Step 4. Claim Your Bounty{' '}
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-300">
-                  Visit your profile on SolidPull to locate your pending bounty.
-                  With a single click, claim your bounty and receive it
-                  instantly.
-                </dd>
-              </div>
+            <dl className='grid gap-2'>
+              <dt className="text-base font-semibold leading-7 text-white">
+                Step 4. Claim Your Bounty{' '}
+              </dt>
+              <dd className="text-base leading-7 text-slate-300">
+                Visit your profile on SolidPull to locate your pending bounty.
+                With a single click, claim your bounty and receive it
+                instantly.
+              </dd>
             </dl>
           </div>
         </div>
-      </div>
-
-      <div className="border-t border-white/10 pt-8 mb-8 md:flex md:items-center md:justify-between">
-        <div className="flex space-x-6  mr-5 md:order-2">
-          <a href="https://twitter.com/solid_pull" className="text-purple-500">
+      </section>
+      <footer className='ring-1 ring-slate-700 py-10'>
+        <div className='wrapper flex w-full justify-between'>
+          <p className="text-xs leading-5  text-slate-200 ">
+            © 2024 SOLIDPULL Technology LLC. All rights reserved.
+          </p>
+          <a href="https://twitter.com/solid_pull" className="text-slate-100">
             <span className="sr-only">X</span>
             <svg
               className="h-6 mr-5 w-6"
@@ -372,66 +365,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <p className="mt-8 text-xs leading-5 ml-5 text-black-400 md:order-1 md:mt-0">
-          © 2024 SOLIDPULL Technology LLC. All rights reserved.
-        </p>
-      </div>
-
-      <style jsx>{`
-        @keyframes shine {
-          from {
-            background-position: -300% center;
-          }
-          to {
-            background-position: 300% center;
-          }
-        }
-        .shining-text {
-          position: relative;
-          color: transparent;
-          background-image: linear-gradient(
-            to right,
-            #c0c1ee 0%,
-            #2f10f8 50%,
-            #c0c1ee 100%
-          );
-          background-clip: text;
-          -webkit-background-clip: text;
-          animation: shine 8s linear infinite; /* Slower animation */
-          background-size: 400% 100%;
-        }
-
-        @keyframes shine {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: -100% -100%;
-          }
-        }
-
-        .bg-starry-night {
-          background-image: url('/starry-night.png');
-          background-size: 200% 200%;
-          animation: starry-night 60s linear infinite;
-        }
-        .animate-starry-night {
-          animation: starry-night 60s linear infinite;
-        }
-        @keyframes fade-in-up {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.5s ease-out;
-        }
-      `}</style>
+      </footer>
     </>
   );
 }

@@ -42,7 +42,7 @@ const Navbar = async () => {
             </Link>
           </li>
         </ul>
-        <div className="flex gap-x-4 animate-fade-in-up">
+        <div className="flex gap-x-4">
           {!session ? (
               <div className='bg-gradient-to-br from-yellow-500 to-orange-500 p-0.5 rounded-[6px] duration-500 shadow-[-30_0_1rem_-1rem,0_0_1rem_-1rem] hover:shadow-[-1rem_0_2rem_-0.5rem,1rem_0_2rem_-0.5rem] hover:shadow-orange-400'>
                 <Button className="bg-black rounded-[5px] px-4 duration-300 transition-colors hover:bg-black/80 font-medium text-base h-auto">
