@@ -48,13 +48,13 @@ export default function Home() {
           <div className="flex items-center gap-x-6">
             <button
               type="button"
-              className="text-[#f1f1f1] bg-gradient-to-r from-[#8e2de2] to-[#4a00e0] hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-[#8e2de2] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 animate-fade-in-up"
+              className="text-white bg-gradient-to-br from-yellow-600 to-orange-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-[#8e2de2] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 animate-fade-in-up"
             >
               <Link href="/sign-in">Sign In</Link>
             </button>
             <a
               href="#demoVideo"
-              className="text-sm font-semibold rounded-lg shadow-2xl leading-6 text-slate-200 animate-fade-in-up"
+              className="text-sm font-semibold rounded-lg shadow-2xl leading-6 text-slate-200 animate-fade-in-up underline decoration-wavy decoration-orange-500 underline-offset-2 duration-500 hover:underline-offset-[6px]"
             >
               Watch the demo <span aria-hidden="true">→</span>
             </a>
@@ -128,7 +128,7 @@ export default function Home() {
                 </p>
                 <a
                   href="#demoVideo"
-                  className="text-sm font-semibold leading-6 text-white"
+                  className="text-sm font-semibold leading-6 text-white underline decoration-wavy decoration-orange-500 underline-offset-2 duration-500 hover:underline-offset-[6px]"
                 >
                   Learn more <span aria-hidden="true">→</span>
                 </a>
@@ -165,7 +165,7 @@ export default function Home() {
                 </p>
                 <a
                   href="#demoVideo"
-                  className="text-sm font-semibold leading-6text-white text-white"
+                  className="text-sm font-semibold leading-6text-white text-white underline decoration-wavy decoration-orange-500 underline-offset-2 duration-500 hover:underline-offset-[6px]"
                 >
                   Learn more <span aria-hidden="true">→</span>
                 </a>
@@ -203,7 +203,7 @@ export default function Home() {
                 </p>
                 <a
                   href="#demoVideo"
-                  className="text-sm font-semibold leading-6 text-white"
+                  className="text-sm font-semibold leading-6 text-white underline decoration-wavy decoration-orange-500 underline-offset-2 duration-500 hover:underline-offset-[6px]"
                 >
                   Learn more <span aria-hidden="true">→</span>
                 </a>
