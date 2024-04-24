@@ -19,9 +19,9 @@ export default function Home() {
               </h1>
             </div>
             <div className="flex flex-col items-center animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-4 flex items-center gap-x-2">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 flex items-center gap-x-2">
                 <span className="icon">💰</span>
-                <span className="bg-gradient-to-r from-slate-50 via-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
+                <span className="bg-gradient-to-r text-center sm:text-start from-slate-50 via-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
                   GitHub Gold Rush - Pull, Earn, Repeat!
                 </span>
               </h2>
@@ -32,9 +32,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='full-width-split-screen'>
-        <div className='gap-8'>
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+      <section className='full-width-split-screen px-4 lg:px-0'>
+        <div className='gap-8 grid max-w-4xl mx-auto lg:max-w-full'>
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white xl:text-6xl">
             Unlock GitHub Success with CodeCoin Analytics
           </h1>
           <p className="text-lg leading-8 text-slate-300">
@@ -65,7 +65,7 @@ export default function Home() {
           alt="App screenshot"
           width="2432"
           height="1442"
-          className="bg-white/5 shadow-[0_0px_100px_#f9731645] rounded-lg object-left-top ml-10 ring-1 ring-neutral-700"
+          className="bg-white/5 shadow-[0_0px_100px_#f9731645] rounded-lg object-left-top lg:ml-10 ring-1 ring-neutral-700"
         />
       </section>
       <section id="demoVideo">
@@ -95,7 +95,7 @@ export default function Home() {
               revolutionize open-source collaboration."
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-x-5 gap-y-10">
+          <div className="grid px-4 md:px-0 md:grid-cols-3 gap-x-5 gap-y-10">
             <dl className="grid gap-1 grid-rows-[max-content]">
               <dt className="text-base font-semibold leading-7 text-white grid gap-4">
                 <div className="grid place-items-center h-10 aspect-square rounded-lg bg-gradient-to-r from-yellow-600 to-orange-600 ">
@@ -235,7 +235,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className='full-width-split-screen gap-20'>
+      <section className='full-width-split-screen grid px-4 lg:px-0 gap-10 xl:gap-20'>
         <img
           width="2432"
           height="1442"
@@ -243,7 +243,7 @@ export default function Home() {
           src="/main_test3.png"
           alt=""
         />
-        <div className="gap-5">
+        <div className="grid gap-5 row-start-1 lg:row-start-auto lg:!col-span-2 sm:!pr-4 xl:!col-span-1 xl:!pr-0">
           <h2 className="text-base font-semibold leading-8 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
             The Future of Open-Source in Crypto
           </h2>
@@ -260,7 +260,7 @@ export default function Home() {
               <dt className="text-sm leading-6 text-slate-300">
                 claim bounty
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-white">
+              <dd className="order-first text-xl lg:text-3xl font-semibold tracking-tight text-white">
                 No Fees, Direct Payments
               </dd>
             </div>
@@ -268,7 +268,7 @@ export default function Home() {
               <dt className="text-sm leading-6 text-slate-300">
                 Organized Repository Management
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-white">
+              <dd className="order-first text-xl lg:text-3xl font-semibold tracking-tight text-white">
                 Effortlessly manage repositories
               </dd>
             </div>
@@ -276,7 +276,7 @@ export default function Home() {
               <dt className="text-sm leading-6 text-slate-300">
                 enhanced collaboration
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-white">
+              <dd className="order-first text-xl lg:text-3xl font-semibold tracking-tight text-white">
                 Bonus
               </dd>
             </div>
@@ -284,7 +284,7 @@ export default function Home() {
               <dt className="text-sm leading-6 text-gray-300">
                 In our Discord community
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-white">
+              <dd className="order-first text-xl lg:text-3xl font-semibold tracking-tight text-white">
                 Perks
               </dd>
             </div>
@@ -292,9 +292,9 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className='wrapper grid grid-cols-2'>
-          <div className='grid gap-4 content-center pr-20'>
-            <img src={logo.src} className="h-30"></img>
+        <div className='wrapper grid gap-5 md:gap-0 md:grid-cols-2'>
+          <div className='grid gap-4 content-center md:pr-20'>
+            <img src={logo.src} className="h-40 sm:h-auto mx-auto md:mx-0"></img>
             <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">
               How to Claim Your Bounty with SolidPull?{' '}
             </h2>
