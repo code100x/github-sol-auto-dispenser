@@ -35,7 +35,8 @@ const Navbar = async () => {
           </li>
           <li>
             <Link
-              href="/#Community"
+              href="https://twitter.com/solid_pull/#Community"
+              target='_blank'
               className="hover:text-amber-500 transition duration-300 p-2 block"
             >
               Community

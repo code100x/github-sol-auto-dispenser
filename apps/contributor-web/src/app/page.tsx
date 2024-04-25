@@ -21,7 +21,7 @@ export default function Home() {
             <div className="flex flex-col items-center animate-fade-in-up">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 flex items-center gap-x-2">
                 <span className="icon">💰</span>
-                <span className="bg-gradient-to-r text-center sm:text-start from-slate-50 via-yellow-500 to-orange-500 bg-clip-text text-transparent select-none">
+                <span className="shining-text bg-gradient-to-r text-center sm:text-start from-yellow-300 via-orange-500 to-yellow-400 bg-clip-text text-transparent select-none">
                   GitHub Gold Rush - Pull, Earn, Repeat!
                 </span>
               </h2>
@@ -353,7 +353,7 @@ export default function Home() {
           <p className="text-xs leading-5  text-slate-200 ">
             © 2024 SOLIDPULL Technology LLC. All rights reserved.
           </p>
-          <a href="https://twitter.com/solid_pull" className="text-slate-100">
+          <a href="https://twitter.com/solid_pull" target='_blank' className="text-slate-100">
             <span className="sr-only">X</span>
             <svg
               className="h-6 mr-5 w-6"

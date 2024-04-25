@@ -26,3 +26,14 @@
     transform: translateY(0);
   }
 }
+
+.shining-text {
+  background-size: 400% 100%;
+  animation: shine 5s infinite alternate-reverse;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% 100%;
+  }
+}
