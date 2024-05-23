@@ -3,7 +3,7 @@
 import React from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { RefreshCcw, Sparkles } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@repo/ui/primitives/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ThemeToggler } from './theme-toggler';
 import Link from 'next/link';
@@ -60,7 +60,7 @@ export const AppbarAuth = ({ isInMenu = false }: { isInMenu?: boolean }) => {
           />
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
-        <Button id="navbar-default" onClick={() => signOut()}>
+        <Button variant={'outline'} id="navbar-default" onClick={() => signOut()}>
           Logout
         </Button>
       </div>
@@ -68,7 +68,7 @@ export const AppbarAuth = ({ isInMenu = false }: { isInMenu?: boolean }) => {
   }
 
   return (
-    <Button id="navbar-default" onClick={() => signIn()}>
+    <Button id="navbar-default" variant={'destructive'} onClick={() => signIn()}>
       Login
     </Button>
   );

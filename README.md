@@ -8,27 +8,31 @@ The project is structured using [Turborepo](https://turborepo.org) and contains 
 
 ```text
 apps
-  └─ contributor-web
+  ├─ contributor-web
   |   ├─ next-app
-  |   ├─ styling with tailwindcss
-  |   ├─ does solona transfer and web3 stuff
+  |   ├─ styling with Tailwind CSS & Shadcn (depends on packages/ui)
+  |   ├─ handles Solona transfer and Web3 functionality
   |   └─ depends on packages/db
   ├─ gh-bot
-  |   ├─ github bot built on top of probot
-  |   ├─ api calls to admin-web for db stuff
-  |   └─ messages the events to discord (optional)
+  |   ├─ GitHub bot built on top of Probot
+  |   ├─ API calls to admin-web for database operations
+  |   └─ optionally sends messages to Discord for events
   └─ admin-web
       ├─ next-app
-      ├─ styling with tailwindcss & shadcn
+      ├─ styling with Tailwind CSS & Shadcn (depends on packages/ui)
       └─ depends on packages/db
 
 packages
   ├─ zod
-  |   └─ zod schema to share throughout the repo
+  |   └─ Zod schema shared throughout the repository
   └─ database
-      ├─ prisma ORM
-      ├─ exposes prisma singleton for all applications
-      └─ scripts to interact with db
+  |   ├─ Prisma ORM
+  |   |   ├─ exposes Prisma singleton for all applications
+  |   |   └─ scripts to interact with the database
+  └─ ui
+      ├─ exposes a global CSS theme
+      ├─ primitives (Shadcn components)
+      └─ shared utils (CN helper)
 ```
 
 

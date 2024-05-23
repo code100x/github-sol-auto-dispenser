@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { SunDimIcon, SunMoonIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { Button } from './ui/button';
+import { Button } from '@repo/ui/primitives/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
+} from '@repo/ui/primitives/dropdown-menu';
 
 export function ThemeToggler() {
   const { setTheme } = useTheme();
