@@ -92,11 +92,3 @@ Alternatively, you can run each application separately, by naviagting to the res
 ```bash
 npm run dev
 ```
-
-
-
-# Contributors 🎉
-
-<a href="https://github.com/code100x/github-sol-auto-dispenser/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=code100x/github-sol-auto-dispenser" />
-</a>
