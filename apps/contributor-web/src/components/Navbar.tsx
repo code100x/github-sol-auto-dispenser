@@ -1,24 +1,26 @@
 import Link from 'next/link';
 import { getServerSession } from 'next-auth/next';
 import { options } from '@/app/api/auth/[...nextauth]/options';
+import {Button} from "@repo/ui/primitives/button"
+import {Profile} from "@repo/ui/primitives/profileIcon"
 
 const Navbar = async () => {
   const session = await getServerSession(options);
 
   return (
-    <nav className="  bg-gradient-to-r  from-[#c0c1ee] to-[#2f10f8] p-4 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="wrapper py-6">
+      <div className="flex items-center justify-between">
         <Link
           href="/"
-          className="text-[#352c43] text-2xl font-bold animate-fade-in-up"
+          className="text-3xl font-bold tracking-tight bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl"
         >
           SolidPull
         </Link>
-        <ul className="gap-x-6  from-[#c0c1ee] to-[#2f10f8] font-medium animate-fade-in-up hidden md:flex">
+        <ul className="gap-6 bg-gradient-to-r from-amber-500/25 to-white/10 hidden md:flex rounded-full border border-zinc-400 text-zinc-50 text-base px-5 shadow-[0_0_0.5rem_0_#fff2] hover:shadow-[0_0_5rem_0_#fff4]">
           <li>
             <Link
               href="/#demoVideo"
-              className="hover:text-[#8e2de2] transition duration-300"
+              className="hover:text-amber-500 transition duration-300 p-2 block"
             >
               Demo
             </Link>
@@ -26,36 +28,38 @@ const Navbar = async () => {
           <li>
             <Link
               href="/#Features"
-              className="hover:text-[#8e2de2] transition duration-300"
+              className="hover:text-amber-500 transition duration-300 p-2 block"
             >
               Features
             </Link>
           </li>
           <li>
             <Link
-              href="/#Community"
-              className="hover:text-[#8e2de2] transition duration-300"
+              href="https://twitter.com/solid_pull/#Community"
+              target='_blank'
+              className="hover:text-amber-500 transition duration-300 p-2 block"
             >
               Community
             </Link>
           </li>
         </ul>
-        <div className="flex gap-x-4 animate-fade-in-up">
+        <div className="flex gap-x-4">
           {!session ? (
-            <button
-              type="button"
-              className="text-[#f1f1f1] bg-gradient-to-r from-[#8e2de2] to-[#4a00e0] hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-[#8e2de2] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              <Link href="/sign-in">Sign In</Link>
-            </button>
+              <div className='bg-gradient-to-br from-yellow-500 to-orange-500 p-0.5 rounded-[6px] duration-500 shadow-[-30_0_1rem_-1rem,0_0_1rem_-1rem] hover:shadow-[-1rem_0_2rem_-0.5rem,1rem_0_2rem_-0.5rem] hover:shadow-orange-400'>
+                <Button className="bg-black rounded-[5px] px-4 duration-300 transition-colors hover:bg-black/80 font-medium text-base h-auto">
+                  <Link href="/sign-in">Sign In</Link>
+                </Button>
+              </div>
           ) : (
             <>
-              <button className="bg-gradient-to-r from-[#726ce7] to-[#8f65e4] hover:bg-gradient-to-l text-[#f1f1f1] font-bold py-2 px-4 rounded transition duration-300">
-                <Link href="/profile">Profile</Link>
-              </button>
-              <button className="bg-gradient-to-r from-[#7e74ed] to-[#8f65e4]  hover:bg-gradient-to-l text-[#f1f1f1] font-bold py-2 px-4 rounded transition duration-300">
+            <div className='bg-gradient-to-br from-yellow-500 to-orange-500 p-0.5 rounded-full duration-500 shadow-[-30_0_1rem_-1rem,0_0_1rem_-1rem] hover:shadow-[-1rem_0_2rem_-0.5rem,1rem_0_2rem_-0.5rem] hover:shadow-orange-400'>
+              <Button className="bg-black rounded-full p-2.5 duration-300 transition-colors hover:bg-black/80 font-medium text-base h-auto">
+                <Link href="/profile"><Profile/></Link>
+              </Button>
+              </div>
+              <Button className="bg-neutral-700 rounded-[6px] px-5 py-2.5 h-auto hover:bg-neutral-600 duration-300 font-medium text-base">
                 <Link href="/sign-out">Sign Out</Link>
-              </button>
+              </Button>
             </>
           )}
         </div>

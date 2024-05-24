@@ -1,3 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '@repo/ui/styles/theme.css';
+
+.animate-strokedasharray {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 15s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shining-text {
+  background-size: 400% 100%;
+  animation: shine 5s infinite alternate-reverse;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% 100%;
+  }
+}
